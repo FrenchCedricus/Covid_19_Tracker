@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,21 @@ namespace Covid_19_Tracker
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+
+        private void clickOnBouttonRecupererData(object sender, RoutedEventArgs e)
+        {
+            API api = new API();
+
+
+
+            string json = api.GetCovidData().GetAwaiter().GetResult();
+            var listDataCovid = JsonConvert.DeserializeObject<List<Covid_Modele>>(json);
+
+            textBlockDate.Text = listDataCovid[0].Date;
+
         }
     }
 }

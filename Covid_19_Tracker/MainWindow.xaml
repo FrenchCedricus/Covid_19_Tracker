@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Covid_19_Tracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Covid-19 Tracker" Height="450" Width="800" Icon="logo.png" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Source="full_logo.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Grid.Column="0" x:Name="labelDate" Content="Date : " FontSize="16" HorizontalAlignment="Left" Margin="0,100,0,0"/>
+                <TextBlock Grid.Column="0" x:Name="textBlockDate" FontSize="16" HorizontalAlignment="Left" Margin="50,25,0,0" Height="25" Width="75"/>
+            </Grid>
+            <Button Grid.Row="1" Content="Récupérer données" Height="30" Width="150" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25" x:Name="bouttonRecupererData" Click="clickOnBouttonRecupererData"/>
+        </Grid>
     </Grid>
 </Window>
