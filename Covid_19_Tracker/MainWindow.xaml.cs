@@ -33,8 +33,6 @@ namespace Covid_19_Tracker
         {
             API api = new API();
 
-
-
             string json = api.GetCovidData().GetAwaiter().GetResult();
             var listDataCovid = JsonConvert.DeserializeObject<List<Covid_Modele>>(json);
 
