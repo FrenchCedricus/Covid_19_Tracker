@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -31,12 +32,25 @@ namespace Covid_19_Tracker
 
         private void clickOnBouttonRecupererData(object sender, RoutedEventArgs e)
         {
-            API api = new API();
+            BackgroundWorker worker = new BackgroundWorker();
 
-            string json = api.GetCovidData().GetAwaiter().GetResult();
-            var listDataCovid = JsonConvert.DeserializeObject<List<Covid_Modele>>(json);
+            worker.DoWork += (s, ex) =>
+            {
+                // Part of other function calls here omitted that don't need to run on the UI thread
+                API api = new API();
 
-            textBlockDate.Text = listDataCovid[0].Date;
+                string json = api.GetCovidData().GetAwaiter().GetResult();
+                var listDataCovid = JsonConvert.DeserializeObject<List<Covid_Modele>>(json);
+
+                Dispatcher.Invoke(() =>
+                {
+                    // Part of other function calls here omitted that must run on the UI thread
+                    textBlockDate.Text = listDataCovid[0].Date;
+                    textBlockHosp.Text = listDataCovid[0].Hosp.ToString();
+                });
+            };
+
+            worker.RunWorkerAsync();
 
         }
     }
