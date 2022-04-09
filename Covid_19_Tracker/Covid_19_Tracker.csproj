@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>new_logo_covid_tracker.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -104,10 +107,16 @@
     <Resource Include="Ressources\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logo.png" />
+    <Resource Include="Ressources\Images\logo2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="full_logo.png" />
+    <Resource Include="Ressources\Images\full_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\new_logo_covid_tracker.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="new_logo_covid_tracker.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
