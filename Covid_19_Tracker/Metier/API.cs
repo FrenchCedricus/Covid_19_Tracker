@@ -12,18 +12,30 @@ namespace Covid_19_Tracker
     class API
     {
         private static HttpClient client = new HttpClient();
-        private const string URL = "https://coronavirusapifr.herokuapp.com/data/live/france";
-        
+        private const string URL_GLOBALE = "https://coronavirusapifr.herokuapp.com/data/live/france";
 
-        public async Task<string> GetCovidData()
+        public async Task<string> GetCovidData(string departement)
         {
-
+            string URL_DEPART = "https://coronavirusapifr.herokuapp.com/data/live/departement/" + departement;
             string data = string.Empty;
-            var response = await client.GetAsync(URL);
 
-            if (response.IsSuccessStatusCode)
+            if (departement == null)
+            { 
+                var response = await client.GetAsync(URL_GLOBALE);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    data = await response.Content.ReadAsStringAsync();
+                }
+
+            }else
             {
-                data = await response.Content.ReadAsStringAsync();
+                var response = await client.GetAsync(URL_DEPART);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    data = await response.Content.ReadAsStringAsync();
+                }
             }
             return data;
         }

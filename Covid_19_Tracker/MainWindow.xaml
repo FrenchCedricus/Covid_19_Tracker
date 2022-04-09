@@ -5,30 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Covid_19_Tracker"
         mc:Ignorable="d"
-        Title="Covid-19 Tracker" Height="450" Width="800" Icon="logo.png" WindowStartupLocation="CenterScreen">
+        Title="Covid-19 Tracker" Height="450" Width="800" Icon="logo.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                </Grid.ColumnDefinitions>                              
 
-                <Image Grid.Column="0" Source="full_logo.png" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Image Grid.Column="0" Source="full_logo.png" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top" Width="241"/>
+                
+                
+                
+                
+                <Label Grid.Column="0" x:Name="labelDate" Content="Date : " FontSize="16" HorizontalAlignment="Left" Margin="371,105,0,187" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="textBlockDate" FontSize="24" HorizontalAlignment="Left" Margin="353,135,0,144" Width="193" Grid.ColumnSpan="2"/>
 
-                <Label Grid.Column="0" x:Name="labelDate" Content="Date : " FontSize="16" HorizontalAlignment="Left" Margin="0,100,0,0"/>
-                <TextBlock Grid.Column="0" x:Name="textBlockDate" FontSize="16" HorizontalAlignment="Left" Margin="50,25,0,0" Height="25" Width="75"/>
+                <GroupBox Header="Always" Grid.Column="0" Margin="4,90,202,64" BorderBrush="Red"/>
 
-                <Label Grid.Column="0" x:Name="labelHosp" Content="Hospitalisation : " FontSize="16" HorizontalAlignment="Left" Margin="0,125,0,0"/>
-                <TextBlock Grid.Column="0" x:Name="textBlockHosp" FontSize="16" HorizontalAlignment="Left" Margin="125,75,0,0" Height="25" Width="75"/>
+                <Label Grid.Column="0" x:Name="labelHosp" Content="Hospitalisation : " FontSize="16" HorizontalAlignment="Left" Margin="10,107,0,190"/>
+                <TextBlock Grid.Column="0" x:Name="textBlockHosp" FontSize="16" HorizontalAlignment="Left" Margin="137,113,0,199" Height="25" Width="75"/>
 
-                <Label Grid.Column="0" x:Name="labelReanimation" Content="Réanimation : " FontSize="16" HorizontalAlignment="Left" Margin="0,150,0,0"/>
-                <TextBlock Grid.Column="0" x:Name="textBlocRanimation" FontSize="16" HorizontalAlignment="Left" Margin="110,125,0,0" Height="25" Width="75"/>
+                <Label Grid.Column="0" x:Name="labelReanimation" Content="Réanimation : " FontSize="16" HorizontalAlignment="Left" Margin="10,132,0,164"/>
+                <TextBlock Grid.Column="0" x:Name="textBlocRanimation" FontSize="16" HorizontalAlignment="Left" Margin="120,138,0,174" Height="25" Width="75"/>
+
+                <Label Grid.Column="0" x:Name="labelPositif" Content="Positif : " FontSize="16" HorizontalAlignment="Left" Margin="10,157,0,141"/>
+                <TextBlock Grid.Column="0" x:Name="textBlocPositif" FontSize="16" HorizontalAlignment="Left" Margin="70,164,0,148" Height="25" Width="75"/>
+
+                
+                
+
+                <GroupBox Header="24h" Grid.Column="1" Margin="209,90,10,64" BorderBrush="Blue"/>
+
+                <Label Grid.Column="1" x:Name="labelHosp24" Content="Hospitalisation : " FontSize="16" HorizontalAlignment="Left" Margin="218,104,0,193"/>
+                <TextBlock Grid.Column="1" x:Name="textBlockHosp24" FontSize="16" HorizontalAlignment="Left" Margin="345,110,-23,202" Height="25" Width="75"/>
+
+                <Label Grid.Column="1" x:Name="labelReanimation24" Content="Réanimation : " FontSize="16" HorizontalAlignment="Left" Margin="218,129,0,167"/>
+                <TextBlock Grid.Column="1" x:Name="textBlocRanimation24" FontSize="16" HorizontalAlignment="Left" Margin="328,135,-6,177" Height="25" Width="75"/>
+
+                <Label Grid.Column="1" x:Name="labelPositif24" Content="Positif : " FontSize="16" HorizontalAlignment="Left" Margin="218,154,0,144"/>
+                <TextBlock Grid.Column="1" x:Name="textBlocPositif24" FontSize="16" HorizontalAlignment="Left" Margin="283,166,0,146" Height="25" Width="75"/>
+
             </Grid>
+            <Label Grid.Row="1" Content="Département :" HorizontalContentAlignment="Left" Margin="15,0,0,0"/>
+            <ComboBox Grid.Row="1"  x:Name="comboBoxDepartement" Height="20" Width="150" HorizontalAlignment="Left" Margin="20">
+                <ComboBoxItem Content="01 - Ain "/>
+                <ComboBoxItem Content="02 - Aisne"/>
+                <ComboBoxItem Content="03 - Allier"/>
+                <ComboBoxItem Content="04 - Alpes-de-Haute-Provence"/>
+                <ComboBoxItem Content="05 - Hautes-Alpes"/>
+                <ComboBoxItem Content="06 - Alpes-Maritimes"/>
+                <ComboBoxItem Content="07 - Ardèche"/>
+            </ComboBox>
+
             <Button Grid.Row="1" Content="Récupérer données" Height="30" Width="150" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25" x:Name="bouttonRecupererData" Click="clickOnBouttonRecupererData"/>
         </Grid>
     </Grid>
